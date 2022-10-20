@@ -1,6 +1,6 @@
 import { axios } from '@/configs/axios.config';
 
-export const getAllTeamsFeed = async (limit, offset) => {
+export const getAllTeams = async (limit, offset) => {
   try {
     const teamsFeed = await axios.get(`/teams?limit=${limit}&offset=${offset}`);
 
@@ -10,7 +10,7 @@ export const getAllTeamsFeed = async (limit, offset) => {
   }
 };
 
-export const getTeamFeed = async teamId => {
+export const getTeam = async teamId => {
   try {
     const teamFeed = await axios.get(`/teams/${teamId}`);
 
