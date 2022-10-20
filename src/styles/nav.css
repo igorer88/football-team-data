@@ -1,0 +1,9 @@
+.nav-link:hover {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.nav-link:active {
+  font-weight: 500;
+  text-decoration: none;
+}
