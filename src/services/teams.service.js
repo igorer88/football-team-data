@@ -1,6 +1,6 @@
-import { axios } from '@/configs/axios.config';
+import axios from '@/configs/axios.config';
 
-export const getAllTeams = async (limit, offset) => {
+export const getAllTeams = async (limit = 100, offset = 0) => {
   try {
     const teamsFeed = await axios.get(`/teams?limit=${limit}&offset=${offset}`);
 
