@@ -1,16 +1,26 @@
 import { FormControl, FormLabel, Input, Button, FormErrorMessage, Box } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
-import useSearchTeam from '../../hooks/use-search.hook';
+import showToast from '../../configs/toast.config';
+
+import useSearch from '../../hooks/use-search.hook';
 
 function SearchBar(props) {
+  let { searchItem } = props;
+
+  const handleSearch = item => {
+    searchItem = item;
+    // return useSearch(searchItem);
+  };
+
   return (
     <Formik
       initialValues={{ name: '' }}
       onSubmit={(values, actions) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           const name = values.name.toLowerCase();
+          showToast('info', name, JSON.stringify(values, null, 2));
+          handleSearch(name);
           actions.setSubmitting(false);
           //const team = await useSearch(name);
         }, 1000);
