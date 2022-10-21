@@ -10,10 +10,12 @@ const axiosInstance = axios.create({
   baseURL
 });
 
+axiosInstance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 axiosInstance.interceptors.request.use(
   config => {
     if (apiKey) {
-      config.headers.common['X-Auth-Token'] = apiKey;
+      config.headers['X-Auth-Token'] = apiKey;
     }
 
     return config;
