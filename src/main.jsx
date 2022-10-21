@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, createStandaloneToast } from '@chakra-ui/react';
+
 import App from './components/App';
+
 import './styles/index.css';
 
 const colors = {
@@ -34,10 +36,13 @@ const config = {
 
 const theme = extendTheme({ colors, config });
 
+const { ToastContainer } = createStandaloneToast(theme);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <App />
+      <ToastContainer />
     </ChakraProvider>
   </React.StrictMode>
 );
